@@ -86,3 +86,55 @@ console.log(sum);  // 10
 // 9. Joining Arrays
 let fruitsString = fruits.join(', ');
 console.log(fruitsString);  // 'apricot, blackberry, cherry'
+
+
+// 1. Using concat() Method
+let array1 = [1, 2, 3];
+let array2 = [4, 5, 6];
+
+let combinedConcat = array1.concat(array2);
+console.log('concat() result:', combinedConcat);
+
+// 2. Using Spread Operator (...)
+let combinedSpread = [...array1, ...array2];
+console.log('Spread Operator result:', combinedSpread);
+
+// 3. Using push() with Spread Operator
+array1.push(...array2);
+console.log('push() with Spread result (modified array1):', array1);
+
+// Reset array1 for next demonstration
+array1 = [1, 2, 3];
+
+// 4. Using Array.prototype.push.apply()
+Array.prototype.push.apply(array1, array2);
+console.log('push.apply() result (modified array1):', array1);
+
+// Reset array1 for next demonstration
+array1 = [1, 2, 3];
+
+// 5. Using for Loop
+let combinedForLoop = [];
+for (let item of array1) {
+  combinedForLoop.push(item);
+}
+for (let item of array2) {
+  combinedForLoop.push(item);
+}
+console.log('for loop result:', combinedForLoop);
+
+// 6. Using reduce() Method
+let combinedReduce = [array1, array2].reduce((acc, curr) => acc.concat(curr), []);
+console.log('reduce() result:', combinedReduce);
+
+// 7. Using Array.of()
+let combinedArrayOf = Array.of(...array1, ...array2);
+console.log('Array.of() result:', combinedArrayOf);
+
+// 8. Using Object.assign()
+let combinedObjectAssign = Object.assign([], array1, array2);
+console.log('Object.assign() result:', combinedObjectAssign);
+
+// Summary of All Results
+console.log('Original Array1:', [1, 2, 3]);
+console.log('Original Array2:', [4, 5, 6]);
